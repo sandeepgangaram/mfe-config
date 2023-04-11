@@ -75,7 +75,7 @@ module.exports = {
       },
       shared: ["react", "react-dom"],
       exposes: {
-        "./MoviData": "./src/utils/movieObservable.js",
+        "./MovieData": "./src/utils/movieObservable.js",
       },
     }),
     new MiniCssExtractPlugin(),
