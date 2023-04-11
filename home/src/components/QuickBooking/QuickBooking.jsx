@@ -1,9 +1,11 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useContext } from "react";
 import "./QuickBooking.scss";
+import RoutingContext from "../../utils/RoutingContext";
 
 const Typography = React.lazy(() => import("components/Typography"));
 
 const QuickBooking = () => {
+  const routingContext = useContext(RoutingContext);
   const [movie, setMovie] = useState("1");
   const [date, setDate] = useState("01/02/2022");
   const [time, setTime] = useState("10 Am");
@@ -14,7 +16,7 @@ const QuickBooking = () => {
       date,
       time,
     };
-    console.log(booking);
+    routingContext.history.push("book");
   };
 
   return (
