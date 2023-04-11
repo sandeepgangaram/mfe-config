@@ -26,6 +26,9 @@ module.exports = {
         "./MovieDetails": "./src/components/DetailsContent/DetailsContent.jsx",
       },
       shared: ["react", "react-dom"],
+      remotes: {
+        container: "container@http://localhost:9000/remoteEntry.js",
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
