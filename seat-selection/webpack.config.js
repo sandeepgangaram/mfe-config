@@ -26,6 +26,9 @@ module.exports = {
           "./src/components/SeatSelectionContent/SeatSelectionContent.jsx",
       },
       shared: ["react", "react-dom"],
+      remotes: {
+        container: "container@localhost:9000/remoteEntry.js",
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({

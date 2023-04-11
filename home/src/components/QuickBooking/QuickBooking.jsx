@@ -6,6 +6,7 @@ const Typography = React.lazy(() => import("components/Typography"));
 
 const QuickBooking = () => {
   const routingContext = useContext(RoutingContext);
+
   const [movie, setMovie] = useState("1");
   const [date, setDate] = useState("01/02/2022");
   const [time, setTime] = useState("10 Am");
