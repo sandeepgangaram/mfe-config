@@ -16,6 +16,13 @@ const QuickBooking = () => {
       date,
       time,
     };
+
+    //dynamic import of observable
+    import("container/MovieData").then((module) => {
+      const movieData = module.default;
+      movieData.next(booking);
+    });
+
     routingContext.history.push("book");
   };
 
