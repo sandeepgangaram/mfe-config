@@ -1,17 +1,24 @@
 import React, { Suspense } from "react";
 import "./App.scss";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 
 const HomePage = React.lazy(() => import("homepage/HomePage"));
 const MovieDetails = React.lazy(() => import("movie_details/MovieDetails"));
 const SeatSelection = React.lazy(() => import("seat_selection/SeatSelection"));
 
 const App = () => {
+  const history = useHistory();
+  const location = useLocation();
+
+  const movieClicked = (movie) => {
+    history.push(`details/${movie.id}`);
+  };
+
   return (
     <Switch>
-      <Route path="/details">
+      <Route path="/details/:id">
         <Suspense fallback={null}>
-          <MovieDetails />
+          <MovieDetails location={location} />
         </Suspense>
       </Route>
       <Route path="/book">
@@ -21,7 +28,7 @@ const App = () => {
       </Route>
       <Route path="/">
         <Suspense fallback={null}>
-          <HomePage />
+          <HomePage movieClicked={movieClicked} />
         </Suspense>
       </Route>
     </Switch>
