@@ -11,14 +11,20 @@ const SeatSelectionContent = () => {
   const [seatsCount, setSeatsCount] = useState(0);
 
   useEffect(() => {
+    let isMounted = true;
     import("container/MovieData").then((module) => {
-      const movieData = module.default;
-      movieData.subscribe({
-        next: (val) => {
-          console.log(`Recived movie data ${val}`);
-        },
-      });
+      if (isMounted) {
+        const movieData = module.default;
+        movieData.subscribe({
+          next: (val) => {
+            loadBooking(val);
+          },
+        });
+      }
     });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const loadBooking = async (booking) => {
