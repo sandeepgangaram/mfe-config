@@ -74,6 +74,9 @@ module.exports = {
         seat_selection: "seat_selection@http://localhost:3003/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
+      exposes: {
+        "./MoviData": "./src/utils/movieObservable.js",
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
