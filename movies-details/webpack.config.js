@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "details",
+      name: "movie_details",
       filename: "remoteEntry.js",
       exposes: {
         "./MovieDetails": "./src/components/DetailsContent/DetailsContent.jsx",
